@@ -28,7 +28,7 @@ public partial class ProjectileMoveSystem : SystemBase
 	protected override void OnUpdate()
 	{
 		float dt = Time.DeltaTime;
-		float g = Physics.gravity.y;
+		float g = -Physics.gravity.y;
 
 		Entities.WithBurst().ForEach((Entity ent,
 		   ref Translation translate,
@@ -39,7 +39,7 @@ public partial class ProjectileMoveSystem : SystemBase
 		   float3 prevPos = translate.Value;
 
 		   flightComponent.time += dt;
-		   float gtSq = g * flightComponent.time * g * flightComponent.time;
+		   float gtSq = g * flightComponent.time * flightComponent.time;
 		   float3 newPos = flightComponent.startPosition +
 				ProjectileFlightComponent.ProjectilePositionAtTime(flightComponent.initialVel, flightComponent.time, gtSq);
 
@@ -61,6 +61,6 @@ public partial class ProjectileMoveSystem : SystemBase
 
 		   translate.Value = newPos;
 		   rotation.Value = rot;
-	   }).Schedule();
+	   }).ScheduleParallel();
 	}
 }

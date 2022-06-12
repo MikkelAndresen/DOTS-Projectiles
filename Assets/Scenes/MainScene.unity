@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 714f446832f2ab7418765479ee3b3469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  physicsTickPerSecond: 20
+  physicsTickPerSecond: 90
   projectileCountToFire: 10
   projectileCounter: 0
   projectileCounterText: {fileID: 121867900}
@@ -685,7 +685,7 @@ MonoBehaviour:
   initialVel:
     x: 0
     y: 0
-    z: 80
+    z: 40
   materialTemplate: {fileID: 0}
   prefab: {fileID: 6434052004049013706, guid: 8a6f6e592d7ab7c449697bd60c304bbf, type: 3}
 --- !u!4 &363003498
